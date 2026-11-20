@@ -10,6 +10,7 @@ First version of the PhiWeft one-page site. Plain static files: HTML, one styles
 public/            everything a web server needs; copy this folder as-is
   index.html       the page and its copy
   css/site.css     all styles (palette and spacing tokens at the top)
+  fonts/           Archivo variable font (Latin, Latin Extended) and its license
   favicon.svg      weave mark
   robots.txt       blocks all crawlers while the site is in review
 README.md          this file (not served)
@@ -17,7 +18,7 @@ README.md          this file (not served)
 
 All links inside `public/` are relative, so the folder works from any path or host.
 
-The only outside request is the Archivo typeface from Google Fonts. If it fails to load, the page falls back to Helvetica/Arial and still works. Self-host the font files in `public/fonts/` if the site should make no third-party requests.
+The page makes no third-party requests. The Archivo typeface is self-hosted in `public/fonts/` under the SIL Open Font License (`public/fonts/OFL.txt`); the files came from Google Fonts (Archivo v25).
 
 ## Preview locally
 
