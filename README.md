@@ -2,7 +2,7 @@
 
 The PhiWeft one-page site. Plain static files: HTML, one stylesheet, no JavaScript, no build step, no backend, no form, no tracking.
 
-**Status: launch version prepared locally, waiting for copy sign-off. Not published, no domain connected.**
+**Status: published on 2026-11-23 at https://matthewbspeicher.github.io/phiweft-site/ from a public repository. No custom domain connected yet.**
 
 ## Layout
 
@@ -31,11 +31,11 @@ python3 -m http.server 4173 --bind 127.0.0.1 --directory public
 
 Then open http://localhost:4173. The server listens on this machine only.
 
-## Hosting: GitHub Pages (proposed)
+## Hosting: GitHub Pages
 
-The site is reviewed locally and then published to GitHub Pages with the real domain. A Pages site is public even when the repository is private, so nothing is published until the checklist below is done.
+The site is published to GitHub Pages from the `public/` folder. The repository was made public on 2026-11-23, so the plan question below no longer applies; it is kept for the record.
 
-### Two things to confirm before publishing
+### Two things that were open before publishing
 
 **1. The GitHub plan allows Pages from this private repository.**
 
@@ -55,7 +55,7 @@ Read https://docs.github.com/en/pages/getting-started-with-github-pages/github-p
 ### Publishing steps
 
 1. In the repository settings, set Pages to build from GitHub Actions.
-2. Run the "Publish to GitHub Pages" workflow by hand (`.github/workflows/pages.yml`). It only ever runs manually, it has not been run yet, and it refuses to publish if it finds draft markers in the page or a blanket `Disallow` in `robots.txt`.
+2. Run the "Publish to GitHub Pages" workflow by hand (`.github/workflows/pages.yml`). It only ever runs manually (first run 2026-11-23; run it again after each change to `public/`), and it refuses to publish if it finds draft markers in the page or a blanket `Disallow` in `robots.txt`.
 3. Add the custom domain in the Pages settings, then point DNS at GitHub.
 4. Load the live site and check the page, the fonts and the contact link.
 
@@ -64,9 +64,10 @@ Read https://docs.github.com/en/pages/getting-started-with-github-pages/github-p
 - [x] Contact method: `matthew@phiweft.com` as a `mailto:` link. Mailbox verified by the owner: sending and replying tested in both directions.
 - [x] Footer: `© 2026 PhiWeft, LLC`. No address, EIN or filing number.
 - [x] Draft banner removed, "(draft)" removed from the page title.
-- [x] `noindex` meta tag removed and `robots.txt` set to allow crawlers. Until the site is published, privacy comes from the repository being private and the preview being local, not from these settings.
+- [x] `noindex` meta tag removed and `robots.txt` set to allow crawlers.
 - [x] Example section is labeled as an illustrative scope, not past PhiWeft work. No client names, logos or third-party product material.
 - [x] Owner sign-off on the copy, including the founder bio and service claims (approved 2026-11-23).
-- [ ] GitHub plan confirmed for Pages from a private repository (see above).
-- [ ] GitHub Pages usage rules read and accepted for this site (see above).
+- [x] GitHub plan: no longer needed. The owner made the repository public on 2026-11-23.
+- [x] GitHub Pages usage rules (see above): the owner chose to publish on 2026-11-23.
+- [x] Published and checked live: page, stylesheet, fonts, icons and logo all load; nothing outside `public/` is served.
 - [ ] Domain and DNS. Not started.
