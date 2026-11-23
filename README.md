@@ -1,8 +1,8 @@
 # PhiWeft site
 
-First version of the PhiWeft one-page site. Plain static files: HTML, one stylesheet, no JavaScript, no build step, no backend.
+The PhiWeft one-page site. Plain static files: HTML, one stylesheet, no JavaScript, no build step, no backend, no form, no tracking.
 
-**Status: private draft for review. Not published, no domain connected.**
+**Status: launch version prepared locally, waiting for copy sign-off. Not published, no domain connected.**
 
 ## Layout
 
@@ -11,9 +11,12 @@ public/            everything a web server needs; copy this folder as-is
   index.html       the page and its copy
   css/site.css     all styles (palette and spacing tokens at the top)
   fonts/           Archivo variable font (Latin, Latin Extended) and its license
-  favicon.svg      weave mark
-  robots.txt       blocks all crawlers while the site is in review
+  img/             logo mark used in the header
+  favicon-32.png, apple-touch-icon.png   browser and home-screen icons
+  robots.txt       allows crawlers (launch setting)
 README.md          this file (not served)
+brand/logo/        logo PNGs on a transparent background, and the original image (not served)
+.github/workflows/pages.yml   manual-only publish to GitHub Pages
 ```
 
 All links inside `public/` are relative, so the folder works from any path or host.
@@ -28,35 +31,42 @@ python3 -m http.server 4173 --bind 127.0.0.1 --directory public
 
 Then open http://localhost:4173. The server listens on this machine only.
 
-## Review copy on Linode, behind a login
+## Hosting: GitHub Pages (proposed)
 
-Nothing here deploys itself. To put a review copy on a Linode:
+The site is reviewed locally and then published to GitHub Pages with the real domain. A Pages site is public even when the repository is private, so nothing is published until the checklist below is done.
 
-1. Copy `public/` to the server, for example to `/var/www/phiweft-review/`.
-2. Serve it from a host name that is not the real domain, over HTTPS.
-3. Require a login for the whole site with HTTP basic auth. In nginx:
+### Two things to confirm before publishing
 
-   ```nginx
-   location / {
-       auth_basic           "PhiWeft review";
-       auth_basic_user_file /etc/nginx/phiweft-review.htpasswd;
-       add_header           X-Robots-Tag "noindex, nofollow" always;
-   }
-   ```
+**1. The GitHub plan allows Pages from this private repository.**
 
-   Create the password file on the server with `htpasswd -c /etc/nginx/phiweft-review.htpasswd <reviewer>`. Keep it outside `public/` and out of version control.
+GitHub's documentation says that if the account owning the repository is on GitHub Free, the repository must be public to use Pages, and it lists Pages in private repositories under GitHub Pro. The plan of the account that owns this repository has not been confirmed. To check:
 
-Basic auth sends the password with every request, so only use it over HTTPS.
+- Sign in as the repository owner and look at the current plan in the account's billing settings (expected at https://github.com/settings/billing; that address was not checked against the docs).
+- Or open the repository's Settings, then Pages. If the "Build and deployment" options are not offered there, the plan does not cover it.
 
-`robots.txt` and the `noindex` tag only ask crawlers to stay away. They do not make the site private; the login does.
+Sources: https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site and https://docs.github.com/en/get-started/learning-about-github/githubs-plans
 
-## Before publishing
+If the plan does not cover it, that is a blocker: decide between upgrading the plan and making the repository public. Do not change visibility as a side effect of publishing.
 
-These are deliberate draft markers. Remove or replace each one at launch:
+**2. The site fits GitHub's rules for Pages.**
 
-- The dark "Private draft for review" strip at the top of `index.html`.
-- `<meta name="robots" content="noindex, nofollow">` in `index.html`, and the blanket `Disallow` in `robots.txt`.
-- "(draft)" in the page title.
-- The contact placeholder box: needs a confirmed contact method. The "Discuss an integration" button points at this section.
-- The footer placeholder: needs the approved business name and details.
-- Founder and service claims in the copy: confirm each is cleared to publish.
+Read https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits. The relevant rule says Pages may not be used as free hosting to run an online business, an e-commerce site, or a site primarily directed at commercial transactions or software as a service. This site is a one-page brochure with an email link: no sales, payments, accounts or hosted software. That reading suggests it fits, but the page does not mention brochure or consulting sites either way, so the call is the owner's. GitHub Support can confirm in writing if wanted. The size and traffic limits (1 GB site, 100 GB a month) are far above what this site uses.
+
+### Publishing steps
+
+1. In the repository settings, set Pages to build from GitHub Actions.
+2. Run the "Publish to GitHub Pages" workflow by hand (`.github/workflows/pages.yml`). It only ever runs manually, it has not been run yet, and it refuses to publish if it finds draft markers in the page or a blanket `Disallow` in `robots.txt`.
+3. Add the custom domain in the Pages settings, then point DNS at GitHub.
+4. Load the live site and check the page, the fonts and the contact link.
+
+## Launch checklist
+
+- [x] Contact method: `matthew@phiweft.com` as a `mailto:` link. Mailbox verified by the owner: sending and replying tested in both directions.
+- [x] Footer: `© 2026 PhiWeft, LLC`. No address, EIN or filing number.
+- [x] Draft banner removed, "(draft)" removed from the page title.
+- [x] `noindex` meta tag removed and `robots.txt` set to allow crawlers. Until the site is published, privacy comes from the repository being private and the preview being local, not from these settings.
+- [x] Example section is labeled as an illustrative scope, not past PhiWeft work. No client names, logos or third-party product material.
+- [x] Owner sign-off on the copy, including the founder bio and service claims (approved 2026-11-23).
+- [ ] GitHub plan confirmed for Pages from a private repository (see above).
+- [ ] GitHub Pages usage rules read and accepted for this site (see above).
+- [ ] Domain and DNS. Not started.

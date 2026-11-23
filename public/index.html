@@ -3,37 +3,25 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex, nofollow">
-<title>PhiWeft: real-time data integration, testing and practical AI (draft)</title>
+<title>PhiWeft: real-time data integration, testing and practical AI</title>
 <meta name="description" content="PhiWeft helps airport and enterprise teams connect operational systems, verify that data is moving correctly, and test integrations before go-live.">
 <link rel="preload" href="fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="stylesheet" href="css/site.css">
 </head>
 <body>
 
 <a class="skip" href="#main">Skip to content</a>
 
-<div class="draft-note">
-  <div class="wrap">Private draft for review. Not published, and not connected to a domain.</div>
-</div>
-
 <header class="wrap masthead">
   <a class="wordmark" href="#top" aria-label="PhiWeft, back to top">
-    <svg viewBox="0 0 26 26" aria-hidden="true" fill="none" stroke-linecap="round">
-      <path d="M8 2v22M18 2v22" stroke="#16202B" stroke-width="2"/>
-      <path d="M2 8h22" stroke="#F5F1E8" stroke-width="6"/>
-      <path d="M2 8h22" stroke="#94552F" stroke-width="2.4"/>
-      <path d="M2 18h22" stroke="#F5F1E8" stroke-width="6"/>
-      <path d="M2 18h22" stroke="#16202B" stroke-width="2.4"/>
-      <path d="M8 5v6M18 15v6" stroke="#F5F1E8" stroke-width="6" stroke-linecap="butt"/>
-      <path d="M8 3v10M18 13v10" stroke="#16202B" stroke-width="2"/>
-    </svg>
+    <img src="img/phiweft-mark.png" alt="" width="90" height="112">
     PhiWeft
   </a>
   <nav class="nav" aria-label="On this page">
     <a href="#services">What PhiWeft does</a>
-    <a href="#engagement">Example engagement</a>
+    <a href="#engagement">Readiness review</a>
     <a href="#about">Who’s behind it</a>
     <a class="nav-contact" href="#contact">Contact</a>
   </nav>
@@ -55,17 +43,17 @@
       <!-- Three strands arrive crossed and settle into an over-under weave. Static; decorative. -->
       <svg class="weave" viewBox="0 0 560 340" aria-hidden="true" fill="none" stroke-linecap="round">
         <!-- warp -->
-        <path stroke="#4A5562" stroke-width="2" d="M300 66V274M337 66V274M374 66V274M411 66V274M448 66V274M485 66V274M522 66V274"/>
+        <path stroke="#46546A" stroke-width="2" d="M300 66V274M337 66V274M374 66V274M411 66V274M448 66V274M485 66V274M522 66V274"/>
         <!-- weft: each strand has a paper-coloured halo so it passes over what is beneath it -->
         <path stroke="#F5F1E8" stroke-width="11" d="M4 176C96 176 158 230 250 230H556"/>
-        <path stroke="#16202B" stroke-width="3.5" d="M4 176C96 176 158 230 250 230H556"/>
+        <path stroke="#132444" stroke-width="3.5" d="M4 176C96 176 158 230 250 230H556"/>
         <path stroke="#F5F1E8" stroke-width="11" d="M4 84C112 84 148 170 250 170H556"/>
-        <path stroke="#16202B" stroke-width="3.5" d="M4 84C112 84 148 170 250 170H556"/>
+        <path stroke="#132444" stroke-width="3.5" d="M4 84C112 84 148 170 250 170H556"/>
         <path stroke="#F5F1E8" stroke-width="11" d="M4 262C116 262 150 110 250 110H556"/>
-        <path stroke="#94552F" stroke-width="3.5" d="M4 262C116 262 150 110 250 110H556"/>
+        <path stroke="#236B78" stroke-width="3.5" d="M4 262C116 262 150 110 250 110H556"/>
         <!-- alternate crossings: warp passes over weft -->
         <path stroke="#F5F1E8" stroke-width="11" stroke-linecap="butt" d="M337 103V117M411 103V117M485 103V117M300 163V177M374 163V177M448 163V177M522 163V177M337 223V237M411 223V237M485 223V237"/>
-        <path stroke="#4A5562" stroke-width="2" d="M337 96V124M411 96V124M485 96V124M300 156V184M374 156V184M448 156V184M522 156V184M337 216V244M411 216V244M485 216V244"/>
+        <path stroke="#46546A" stroke-width="2" d="M337 96V124M411 96V124M485 96V124M300 156V184M374 156V184M448 156V184M522 156V184M337 216V244M411 216V244M485 216V244"/>
       </svg>
     </div>
   </section>
@@ -110,36 +98,45 @@
   <section class="section example" id="engagement" aria-labelledby="engagement-h">
     <div class="wrap split">
       <div>
-        <h2 id="engagement-h">What an engagement looks like</h2>
-        <p class="section-intro">Work is agreed as a defined scope up front and done alongside your own team and vendors.</p>
+        <h2 id="engagement-h">Airport Integration Readiness Review</h2>
+        <p class="section-intro">A fixed scope a prime contractor can add to a delivery plan: one flight-data feed or one passenger-display interface, checked before go-live.</p>
       </div>
 
       <div>
-        <p class="example-flag">Example scope. An illustration, not a completed PhiWeft project.</p>
-        <p class="example-title">A flight-data feed, checked from source to passenger display</p>
+        <p class="example-flag">Illustrative scope. An example of how the work is framed, not past PhiWeft work.</p>
+        <p class="example-title">One feed or interface, from source to screen</p>
 
         <ol class="steps">
           <li class="step">
             <div>
-              <h3>Trace the feed</h3>
-              <p>Follow flight data hop by hop, from the source system through each interface to the passenger display. Write down what every stage receives, changes and passes on.</p>
+              <h3>Trace it from source to screen</h3>
+              <p>Follow the data hop by hop, from the source system through each interface to the passenger display. Write down what every stage receives, changes and passes on.</p>
             </div>
           </li>
           <li class="step">
             <div>
-              <h3>Replay the hard cases</h3>
-              <p>Replay late updates and gate changes using approved test data, and record what the displays show and when they show it.</p>
+              <h3>Replay late and out-of-order updates</h3>
+              <p>Using approved test data, replay updates that arrive late, repeated or out of order. Record what the displays show and when they show it.</p>
             </div>
           </li>
           <li class="step">
             <div>
-              <h3>Hand over the record</h3>
-              <p>Give the team a clear record for sign-off: what was tested, what passed, what failed, and how to reproduce each result.</p>
+              <h3>Deliver a pass/fail record and a short list of fixes</h3>
+              <p>Each case is marked pass or fail, with the steps to reproduce it. Failures come with a short list of fixes, ordered by what to do first.</p>
             </div>
           </li>
         </ol>
 
-        <p class="example-foot">Your team ends up with evidence to sign off on, or a short, ordered list of what to fix first.</p>
+        <dl class="scope">
+          <div>
+            <dt>What you provide</dt>
+            <dd>The interface specification, access to a test environment, and test data your team has approved for use.</dd>
+          </div>
+          <div>
+            <dt>What you receive</dt>
+            <dd>A written pass/fail record your team can attach to a sign-off, and the list of fixes.</dd>
+          </div>
+        </dl>
       </div>
     </div>
   </section>
@@ -159,9 +156,9 @@
       <h2 id="contact-h">Have a feed, interface, or rollout that needs a second set of eyes?</h2>
       <div class="contact-grid">
         <p>A few lines is enough to start: which systems are involved, what should be flowing between them, and when it has to work.</p>
-        <div class="placeholder" role="note" aria-label="Contact details placeholder">
-          <strong>Contact details placeholder</strong>
-          <p>A confirmed contact method goes here before this page is published. There is no live email address or form yet.</p>
+        <div class="contact-card">
+          <p class="contact-label">Email Matthew</p>
+          <p><a class="contact-email" href="mailto:matthew@phiweft.com">matthew@phiweft.com</a></p>
         </div>
       </div>
     </div>
@@ -171,8 +168,8 @@
 
 <footer class="footer">
   <div class="wrap footer-row">
-    <p><strong>PhiWeft</strong> is a working brand name.</p>
-    <p>Business footer placeholder: approved business name and details go here before publishing.</p>
+    <p>© 2026 PhiWeft, LLC</p>
+    <p><a href="mailto:matthew@phiweft.com">matthew@phiweft.com</a></p>
   </div>
 </footer>
 

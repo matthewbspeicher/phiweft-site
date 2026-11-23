@@ -26,10 +26,10 @@
   /* Palette */
   --paper: #F5F1E8;       /* warm off-white */
   --paper-deep: #ECE6D8;  /* one step down, for the example panel */
-  --ink: #16202B;         /* deep ink */
-  --ink-soft: #4A5562;    /* secondary text, warp threads */
+  --ink: #132444;         /* navy, from the logo wordmark */
+  --ink-soft: #46546A;    /* secondary text, warp threads */
   --rule: #D6CEBD;        /* hairlines */
-  --copper: #94552F;      /* muted copper, 5:1 on paper */
+  --teal: #236B78;        /* deep teal accent, from the logo mark */
 
   /* Spacing and type both step by the golden ratio (and its square root) */
   --s-2: 0.382rem;
@@ -79,10 +79,10 @@ h3 { font-size: var(--t-h3); line-height: 1.2; letter-spacing: -0.01em; }
 p { text-wrap: pretty; }
 
 a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
-a:hover { text-decoration-color: var(--copper); text-decoration-thickness: 2px; }
+a:hover { text-decoration-color: var(--teal); text-decoration-thickness: 2px; }
 
 :focus-visible {
-  outline: 3px solid var(--copper);
+  outline: 3px solid var(--teal);
   outline-offset: 3px;
   border-radius: 2px;
 }
@@ -102,13 +102,6 @@ a:hover { text-decoration-color: var(--copper); text-decoration-thickness: 2px; 
 }
 .skip:focus { top: var(--s-1); }
 
-/* Draft notice: remove before publishing */
-.draft-note {
-  background: var(--ink); color: var(--paper);
-  font-size: var(--t-small); line-height: 1.4;
-  padding-block: var(--s-1);
-}
-
 /* Header */
 .masthead {
   display: flex; align-items: center; justify-content: space-between;
@@ -120,10 +113,10 @@ a:hover { text-decoration-color: var(--copper); text-decoration-thickness: 2px; 
   font-stretch: 118%; font-weight: 650; font-size: 1.272rem;
   letter-spacing: -0.015em; text-decoration: none;
 }
-.wordmark svg { width: 1.618rem; height: 1.618rem; flex: none; }
+.wordmark img { height: 2.2rem; width: auto; flex: none; display: block; }
 .nav { display: flex; gap: var(--s1); font-size: 0.95rem; }
 .nav a { text-decoration: none; padding-block: var(--s-2); border-bottom: 1px solid transparent; }
-.nav a:hover { border-bottom-color: var(--copper); }
+.nav a:hover { border-bottom-color: var(--teal); }
 
 /* Hero */
 .hero { padding-block: var(--s3) var(--s4); }
@@ -156,7 +149,7 @@ a:hover { text-decoration-color: var(--copper); text-decoration-thickness: 2px; 
   text-decoration: none;
   transition: background-color 120ms ease;
 }
-.button:hover { background: var(--copper); }
+.button:hover { background: var(--teal); }
 @media (prefers-reduced-motion: reduce) { .button { transition: none; } }
 
 /* Sections share one golden split: heading in the narrow column, content in the wide one */
@@ -193,7 +186,7 @@ a:hover { text-decoration-color: var(--copper); text-decoration-thickness: 2px; 
 }
 .when li::before {
   content: ""; position: absolute; left: 0; top: 1.25em;
-  width: 0.9rem; height: 2px; background: var(--copper);
+  width: 0.9rem; height: 2px; background: var(--teal);
 }
 
 /* Example engagement */
@@ -218,10 +211,15 @@ a:hover { text-decoration-color: var(--copper); text-decoration-thickness: 2px; 
 .step::before {
   content: counter(step);
   font-size: var(--t-h2); font-weight: 300; font-stretch: 112%;
-  line-height: 0.95; color: var(--copper);
+  line-height: 0.95; color: var(--teal);
 }
 .step p { margin-top: var(--s-2); max-width: var(--measure); }
-.example-foot { margin-top: var(--s0); padding-top: var(--s1); border-top: 1px solid var(--ink); max-width: var(--measure); color: var(--ink-soft); }
+.scope {
+  margin: 0; padding-top: var(--s1); border-top: 1px solid var(--ink);
+  display: grid; grid-template-columns: 1fr 1fr; gap: var(--s1) var(--s2);
+}
+.scope dt { font-weight: 650; font-stretch: 106%; }
+.scope dd { margin-top: var(--s-2); color: var(--ink-soft); }
 
 /* Who's behind it */
 .bio p { max-width: var(--measure); }
@@ -233,18 +231,13 @@ a:hover { text-decoration-color: var(--copper); text-decoration-thickness: 2px; 
 .contact h2 { max-width: 20ch; }
 .contact-grid { display: grid; grid-template-columns: 1.618fr 1fr; gap: var(--s2); align-items: end; margin-top: var(--s2); }
 .contact-grid p { max-width: var(--measure); }
-.placeholder {
-  border: 1.5px dashed var(--copper);
-  border-radius: 3px;
-  padding: var(--s1);
-}
-.placeholder strong { display: block; font-weight: 650; }
-.placeholder p { margin-top: var(--s-2); color: var(--ink-soft); font-size: 1rem; line-height: 1.5; }
+.contact-card { border-top: 2px solid var(--teal); padding-top: var(--s0); }
+.contact-label { font-size: var(--t-small); color: var(--ink-soft); }
+.contact-email { font-size: var(--t-lead); font-weight: 650; font-stretch: 112%; overflow-wrap: anywhere; }
 
 /* Footer */
 .footer { border-top: 1px solid var(--rule); padding-block: var(--s1) var(--s2); font-size: var(--t-small); color: var(--ink-soft); }
 .footer-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--s-1) var(--s1); }
-.footer strong { color: var(--ink); font-weight: 650; font-stretch: 112%; }
 
 /* Phone and narrow tablet */
 @media (max-width: 52rem) {
@@ -258,7 +251,7 @@ a:hover { text-decoration-color: var(--copper); text-decoration-thickness: 2px; 
 }
 @media (max-width: 40rem) {
   .nav a:not(.nav-contact) { display: none; }
-  .services { grid-template-columns: 1fr; gap: var(--s1); }
+  .services, .scope { grid-template-columns: 1fr; gap: var(--s1); }
   .service-ai { grid-template-columns: 1fr; gap: var(--s-2); }
   .hero-actions .button { width: 100%; text-align: center; }
   .hero-aside { max-width: none; }

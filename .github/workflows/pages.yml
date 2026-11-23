@@ -1,0 +1,42 @@
+# Publishes public/ to GitHub Pages.
+# Manual only: it never runs on push. Do not run it until the site is cleared
+# to be public (see "Launch checklist" in README.md). A Pages site is public
+# even when this repository is private.
+name: Publish to GitHub Pages
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v7
+      - name: Stop if draft markers are still in the page
+        run: |
+          if grep -n -i -E 'noindex|\(draft\)|draft-note|placeholder' public/index.html; then
+            echo "Draft markers found in public/index.html. Not publishing." >&2
+            exit 1
+          fi
+          if grep -q -E '^Disallow: /$' public/robots.txt; then
+            echo "robots.txt still blocks all crawlers. Not publishing." >&2
+            exit 1
+          fi
+      - uses: actions/configure-pages@v6
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: public
+      - id: deployment
+        uses: actions/deploy-pages@v5
